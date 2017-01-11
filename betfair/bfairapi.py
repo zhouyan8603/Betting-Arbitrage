@@ -23,7 +23,7 @@ def getSESSIONToken(username, password):
         idx = cookie.find("ssoid=")+6
         SESSION_TOKEN = cookie[idx:].split(";")[0]
 
-        return SESSION_TOKE
+        return SESSION_TOKEN
 
 """
 make a call API-NG

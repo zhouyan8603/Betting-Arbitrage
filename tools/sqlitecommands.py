@@ -3,7 +3,7 @@ import time
 import datetime
 
 
-conn = sqlite3.connect('mastertest.db')
+conn = sqlite3.connect('master.db')
 
 c = conn.cursor()
 
