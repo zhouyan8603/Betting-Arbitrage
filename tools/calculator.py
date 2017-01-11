@@ -37,7 +37,7 @@ def layToBack(layOdds):
 Arb Calculator (Back-Back). Works out if an arb exists when given odds of two mutually exclusive events. Gives ROI for arb
 """
 
-def calcBackBack(stake,underdog,favourite):
+def BackBack(stake,underdog,favourite):
     underdog_amount = (float(stake)*float(favourite))/(float(underdog)+float(favourite))
     favourite_amount = (float(stake)*float(underdog))/(float(underdog)+float(favourite))
     profit = (float(stake)*float(underdog)*float(favourite))/(float(underdog)+float(favourite))-float(stake)
@@ -46,15 +46,15 @@ def calcBackBack(stake,underdog,favourite):
 """
 Arb Calculator (Lay-Back). Works out if an arb exists for both backing and laying an event. Gives ROI.
 """
-def calcLayBack(stake,layOdds,backOdds):
-	return calcBackBack(stake,layToBack(layOdds),backOdds)
+def LayBack(stake,layOdds,backOdds):
+	return BackBack(stake,layToBack(layOdds),backOdds)
 
 """
 Arb Calculator (Lay-Lay). Works out if an arb exists for laying 2 mutually exclusing events at different exchanges
 """
 
-def calcLayLay(stake,underdog,favourite):
-	return calcBackBack(stake,layToBack(underdog),layToBack(favourite))
+def LayLay(stake,underdog,favourite):
+	return BackBack(stake,layToBack(underdog),layToBack(favourite))
 
 """
 Arb Calculator (3-way)

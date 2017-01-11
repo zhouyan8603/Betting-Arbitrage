@@ -1,3 +1,3 @@
-username = 'YOUR_USERNAME'
-password = 'YOUR_PASSWORD'
-appKey = 'YOUR_APP_KEY'
+username = 'YOUR_USERNAME_HERE'
+password = 'YOUR_PASSWORD_HERE'
+appKey = 'YOUR_APPKEY_HERE'

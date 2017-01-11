@@ -59,16 +59,7 @@ def parse_and_write_data(soup, date, time):
     if True:
         df = DataFrame(
                 columns=(
-     'player','Pinnacle',
-'Will Hill',
-'bet365',
-'Bookmaker',
-'BetOnline',
-'The Greek Sportsbook',
-'JustBet',
-'SportsInteraction',
-'WagerWeb',
-'5Dimes'))
+     'player','Pinnacle','Will Hill','bet365','Bookmaker','BetOnline','The Greek Sportsbook','JustBet','SportsInteraction','WagerWeb','FiveDimes'))
 
     counter = 0
     number_of_games = len(soup.find_all('div', attrs = {'class':'el-div eventLine-rotation'})) #correct
@@ -76,10 +67,6 @@ def parse_and_write_data(soup, date, time):
     for i in range(0, number_of_games):
         A = []
         H = []
-        #print(str(i+1)+'/'+str(number_of_games))
-        ## Gather all useful data from unique books
-# ^^^This stuff is just parsing, splitting strings etc.
-
         ## get line/odds info for unique book. Need error handling to account for blank data
         def try_except_book_line(id, i , x):
             try:
@@ -98,9 +85,6 @@ def parse_and_write_data(soup, date, time):
         wagerweb_A = try_except_book_line('999993',i, 0)
         fivedimes_A = try_except_book_line('19',i, 0)
 
-
-
-
         player_H = players[i].find_all('div')[1].get_text().strip()
 
         pinnacle_H = 0 #try_except_book_line('238',i, 1)
@@ -115,35 +99,34 @@ def parse_and_write_data(soup, date, time):
         fivedimes_H = try_except_book_line('19',i, 1)
 
         if ") " in replace_unicode(player_A):
-          A.append(replace_unicode(player_A).lower().split(") ")[1])
+          A.append(str(replace_unicode(player_A)).lower().split(") ")[1])
         else:
-          A.append(replace_unicode(player_A).lower())
-        A.append(pinnacle_A)
-        A.append(willhill_A)
-        A.append(betThreeSixFive_A)
-        A.append(bookmaker_A)
-        A.append(betonline_A)
-        A.append(thegreeksportsbook_A)
-        A.append(justbet_A)
-        A.append(sportsinteraction_A)
-        A.append(wagerweb_A)
-        A.append(fivedimes_A)
+          A.append(str(replace_unicode(player_A)).lower())
+        A.append(str(pinnacle_A))
+        A.append(str(willhill_A))
+        A.append(str(betThreeSixFive_A))
+        A.append(str(bookmaker_A))
+        A.append(str(betonline_A))
+        A.append(str(thegreeksportsbook_A))
+        A.append(str(justbet_A))
+        A.append(str(sportsinteraction_A))
+        A.append(str(wagerweb_A))
+        A.append(str(fivedimes_A))
+
         if ") " in replace_unicode(player_H):
-          H.append(replace_unicode(player_H).lower().split(") ")[1])
+          H.append(str(replace_unicode(player_H)).lower().split(") ")[1])
         else:
-          H.append(replace_unicode(player_H).lower())
-
-
-        H.append(pinnacle_H)
-        H.append(willhill_H)
-        H.append(betThreeSixFive_H)
-        H.append(bookmaker_H)
-        H.append(betonline_H)
-        H.append(thegreeksportsbook_H)
-        H.append(justbet_H)
-        H.append(sportsinteraction_H)
-        H.append(wagerweb_H)
-        H.append(fivedimes_H)
+          H.append(str(replace_unicode(player_H)).lower())
+        H.append(str(pinnacle_H))
+        H.append(str(willhill_H))
+        H.append(str(betThreeSixFive_H))
+        H.append(str(bookmaker_H))
+        H.append(str(betonline_H))
+        H.append(str(thegreeksportsbook_H))
+        H.append(str(justbet_H))
+        H.append(str(sportsinteraction_H))
+        H.append(str(wagerweb_H))
+        H.append(str(fivedimes_H))
         ## Take data from A and H (lists) and put them into DataFrame
         df.loc[counter]   = ([A[j] for j in range(len(A))])
         df.loc[counter+1] = ([H[j] for j in range(len(H))])
