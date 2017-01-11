@@ -14,7 +14,8 @@ This is a basic python alert service for Sports Arbitrage. It scans odds across:
 * SportsInteraction 
 * WagerWeb 
 * 5Dimes
-though it can easily be modified to include:
+
+It can also easily be modified to include:
 * Bodog
 * Sportsbetting
 * SBR Sportsbook
